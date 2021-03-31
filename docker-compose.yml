@@ -18,4 +18,8 @@ services:
       #OVERRIDE_SERVER_PROPERTIES: "TRUE"
     volumes:
       - ./data:/data
-
+  dynamic_dns:
+    image: jimtremblay/docker_dns_updater
+    restart: unless-stopped
+    env_file:
+      - dynamic_dns.env
